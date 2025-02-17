@@ -3,12 +3,12 @@
 #SBATCH --cluster=genius
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8       # Adjust based on available resources
-#SBATCH --time=48:00:00         # Adjust depending on dataset size
-#SBATCH --mem=32G               # Adjust memory if needed
+#SBATCH --cpus-per-task=8       
+#SBATCH --time=48:00:00         
+#SBATCH --mem=32G               
 #SBATCH --output=/scratch/leuven/362/vsc36201/RNA-seq/logs/filtering_%j.out
 #SBATCH --error=/scratch/leuven/362/vsc36201/RNA-seq/logs/filtering_%j.err
-#SBATCH -A lp_svbelleghem       # Adjust to your allocation/project
+#SBATCH -A lp_svbelleghem      
 
 # Load the SAMtools module
 module load cluster/genius/batch
