@@ -2,22 +2,28 @@
 
 This repository contains scripts for processing RNA-Seq data. The scripts were executed in the following order:
 
-#### 1. Quality Check of `.fq.qz`-files
+#### 1. Quality check of `.fq.qz`-files
 Run FastQC to assess the quality of raw sequencing reads: `fastqc.sh`
 
-#### 2. Indexing the Reference Genome
+#### 2. Indexing reference genome `sorted_prim_dud.fasta`
 Prepare the reference genome for alignment using STAR: `star_reference_index.sh`
 
-#### 3. Alignment to the Reference Genome
+#### 3. Alignment to the reference genome using STAR
 Map the reads to the reference genome: `star_alignment.sh`
 
-#### 4. Filtering and Sorting BAM Files
+#### 4. Filter and sort BAM-files
 Process the aligned reads: `bam_filtering.sh`
 
-#### 5. Qualimap Analysis
-Note: Qualimap did not work, but the script used was: `bam_qualimap.sh`
+#### 5. Check the alignment stats
+```sh
+for bamfile in alignment/*.filtered.sorted.bam; do
+    echo "Processing $bamfile..."
+    samtools stats "$bamfile" > "${bamfile%.filtered.sorted.bam}.stats"
+done
+echo "All files have been processed!"
+```
 
-#### 6. Indexing BAM Files
+#### 6. Index BAM-files
 Index the filtered and sorted BAM files:
 ```sh
 for bam_file in *.filtered.sorted.bam; do
