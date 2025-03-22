@@ -20,6 +20,6 @@ for sample in /scratch/leuven/362/vsc36201/RNA-seq/fastq-files/*.fq.gz; do
     fastqc -o /scratch/leuven/362/vsc36201/RNA-seq/fastqc "$sample" &
 done
 
-wait  # Ensures all background processes finish before exiting
+wait
 
 echo "FastQC analysis completed!"
