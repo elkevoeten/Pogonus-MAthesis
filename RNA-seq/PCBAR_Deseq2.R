@@ -10,6 +10,7 @@ library(ashr)
 
 # Load count data
 counts <- read.table("pogonus.counts.cleaned", header=TRUE, row.names=1, sep="\t")
+positions <- counts[, (1:5)]
 counts <- counts[, -(1:5)]
 head(counts)
 
