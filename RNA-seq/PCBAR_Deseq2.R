@@ -9,7 +9,7 @@ library(dplyr)
 library(ashr)
 
 # Load count data
-counts <- read.table("pogonus.counts.formatted", header=TRUE, row.names=1, sep="\t")
+counts <- read.table("pogonus.counts.cleaned", header=TRUE, row.names=1, sep="\t")
 counts <- counts[, -(1:5)]
 head(counts)
 
