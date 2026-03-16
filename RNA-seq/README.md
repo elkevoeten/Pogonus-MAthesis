@@ -48,7 +48,7 @@ From this counts file, the genes that didn't map to one of the 10 main chromosom
 awk 'BEGIN{OFS="\t"} {split($2,a,";"); split($3,b,";"); split($4,c,";"); split($5,d,";"); $2=a[1]; $3=b[1]; $4=c[1]; $5=d[1]; print}' pogonus.counts.formatted > pogonus.counts.cleaned
 ```
 #### 8. Differential Expression Analysis with DESeq2
-Run DESeq2 analysis in R: `PCBAR_Deseq2.R`
+Run DESeq2 analysis in R: scripts in subfolder `R`
 
 ##### Extract Up-Regulated Genes
 Write up-regulated genes (log2FoldChange > 1, p-value < 0.05) to a file:
